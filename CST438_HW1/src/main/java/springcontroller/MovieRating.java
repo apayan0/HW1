@@ -39,7 +39,7 @@ public class MovieRating {
 		this.rating = rating;
 		this.posterName = posterName;
 	}
-
+	
 	public long getId() {
 		return id;
 	}

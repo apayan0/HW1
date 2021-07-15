@@ -1,11 +1,8 @@
 package springcontroller;
 
 
-import java.util.Date;
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,13 +25,14 @@ public class Movie{ //		localhost:8080
 	
 	@PostMapping("/movies/new")
 	public String processMovieForm(@Valid @ModelAttribute("movierating")
-			MovieRating movierating,
+			MovieRating movierating,	
 			BindingResult result,
 			Model model) {
 		if (result.hasErrors()) {
 			return "movie_form";
 		}		
 		movieRatingRepository.save(movierating);
+		model.addAttribute("time", new java.util.Date().toString()); 
 		return "movie_show";
 	}
 	
