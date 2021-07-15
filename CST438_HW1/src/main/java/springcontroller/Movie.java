@@ -35,10 +35,10 @@ public class Movie{ //		localhost:8080
 		model.addAttribute("time", new java.util.Date().toString()); 
 		return "movie_show";
 	}
-	
+
 	@GetMapping("/movies")
 	public String getAllMovieRatings(Model model) {
-		Iterable<MovieRating> movieratings = movieRatingRepository.findAll();
+		Iterable<MovieRating> movieratings = movieRatingRepository.findAllMovieRatingsOrderByTitleDateDesc();
 		model.addAttribute("movieratings", movieratings);
 		return "movies_list";
 	}

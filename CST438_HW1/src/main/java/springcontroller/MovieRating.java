@@ -15,6 +15,8 @@ public class MovieRating {
 	@GeneratedValue
 	private long id;
 	
+	private String date;
+	
 	@NotNull(message="title must not be null")
 	@Size(min=3, max=25, message="character length between 3 and 25")
 	private String title;
@@ -32,12 +34,21 @@ public class MovieRating {
 		
 	}
 	
-	public MovieRating(long id, String title, int rating, String posterName) {
+	public MovieRating(String date, long id, String title, int rating, String posterName) {
 		super();
+		this.date = date;
 		this.id = id;
 		this.title = title;
 		this.rating = rating;
 		this.posterName = posterName;
+	}
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	public long getId() {
@@ -70,7 +81,6 @@ public class MovieRating {
 
 	public void setPosterName(String posterName) {
 		this.posterName = posterName;
-	}
-		
+	}		
 	
 }
